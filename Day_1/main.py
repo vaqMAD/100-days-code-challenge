@@ -3,7 +3,7 @@
 print("Welcome to the band name generator")
 
 
-def generate_band_name(city_of_birth: str =str, pet_name: str=str):
+def generate_band_name(city_of_birth: str = str, pet_name: str = str):
     """This function will generate a sample band name based on requirements
 
     Args:
@@ -11,7 +11,7 @@ def generate_band_name(city_of_birth: str =str, pet_name: str=str):
         pet_name (str): The value of parameter is based on imput.
 
     Returns:
-        dict: the values of brand_name_dict var, are parts of our band name 
+        str : It return the band name based on city of birth and pet name
     """
     city_of_birth = input("What is name of the city you birth at ? ")
     pet_name = input("What is your pet's name ? ")
