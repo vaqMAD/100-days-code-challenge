@@ -3,6 +3,12 @@ import random
 
 
 def password_generator():
+    """This function will generate password based on given values : how many characters each type you want. 
+
+    Returns:
+        list: it returs list of randomized characters 
+    """
+    
     lower_case = list(string.ascii_lowercase)
     upper_case = list(string.ascii_uppercase)
     digits = list(string.digits)
