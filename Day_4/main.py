@@ -2,6 +2,11 @@ import random
 from interface import Interface
 
 def rps_game():
+    """This function will simulate Rock, Paper, Scissors game
+
+    Raises:
+        ValueError: Raises when player will provide different value than possible choices 
+    """
 
     possible_choices = [Interface.Rock.value,
                         Interface.Paper.value, Interface.Scissors.value]
