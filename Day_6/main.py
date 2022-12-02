@@ -44,3 +44,5 @@ def hangman_game():
 
 
 hangman_game()
+
+# TODO: Potential TODO tasks : 1. Connect application with public API which will generate random word  2. Import random word and use it into hangman_game
