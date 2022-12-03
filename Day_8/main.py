@@ -31,9 +31,13 @@ def encode_message(message: str, letter_shift: int):
 
 print(encode_message("Nikola dupa xdd", 26))
 
+# TODO : Decode_messsage function
+
 
 def decode_message():
     pass
+
+# TODO : main program function with intputs from user and user inteface
 
 
 def main_program():
