@@ -5,7 +5,7 @@ with open('E:\Python\\100-Days-Challange-Bootcamp\Day_11\cards.json', "r", encod
     cards_list = json.load(file)
 
 
-def pick_random_card(cards: list) -> dict:
+def pick_random_card(cards: list = cards_list) -> dict:
     card = random.choice(cards)
     card_index = cards.index(card)
     cards.pop(card_index)
@@ -13,20 +13,46 @@ def pick_random_card(cards: list) -> dict:
     return card
 
 
-def check_card_value(card: dict) -> dict:
+def check_card_value(cards: list) -> list:
+    # for card in cards:
+    # for i in card:
+    # if i == 'suit':
+    # suit = card[i]
+    # continue
+    # else:
+    # card_value = card[i]
+    #
+    # card.update({suit: card_value})
+    # card.pop('suit')
+    # card.pop('value')
+    # cards.append(card)
+    #
+    # return cards
+    pass
+    new_dict = {}
+    new_list = []
+    for card in cards:
+        card_suit = card.get("suit")
+        card_value = card.get("value")
+        new_dict[card_suit] = card_value
+        # card_suit = card.get("suit")
+        # card_value = card.get("value")
+        # new_dict.update({card_suit: card_value})
+        # new_list.append(new_dict)
+    new_list.append(new_dict)
+    return new_list
 
-    for i in card:
-        if i == 'suit':
-            suit = card[i]
-            continue
-        else:
-            card_value = card[i]
 
-    card.update({suit: card_value})
-    card.pop('suit')
-    card.pop('value')
+x = []
+card_1 = pick_random_card()
+card_2 = pick_random_card()
+card_3 = pick_random_card()
 
-    return card
+x.append(card_1)
+x.append(card_2)
+x.append(card_3)
+
+print(check_card_value(x))
 
 
 def change_special_cards_value(cards: list):
@@ -74,11 +100,16 @@ def change_ace_card_value(card: dict):
 
 
 def player_hand(amounts_of_cards: int):
-    player_hand = []
+    # player_hand = []
+    # for _ in range(amounts_of_cards):
+    # player_hand.append(check_card_value(pick_random_card(cards_list)))
+    #
+    # return player_hand
+    pass
+    player_hand = participant_hand(amounts_of_cards)
+    visible_player_hand = []
     for _ in range(amounts_of_cards):
-        player_hand.append(check_card_value(pick_random_card(cards_list)))
-
-    return player_hand
+        visible_player_hand.append(check_card_value())
 
 
 def computers_hand(amounts_of_cards: int):
