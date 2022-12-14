@@ -13,7 +13,7 @@ class Card:
 
         if self.card_value in special_cards_values:
             if self.card_value == 'A':
-                self.card_value = [1, 11]
+                self.card_value = 11
             else:
                 self.card_value = 10
         else:

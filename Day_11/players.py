@@ -1,7 +1,7 @@
 import json
 import random
 
-with open('E:\Python\\100-days-code-challenge\Day_11\cards.json', "r", encoding="UTF-8") as file:
+with open('Day_11\cards.json', "r", encoding="UTF-8") as file:
     cards_list = json.load(file)
 
 class Player_BlackJack_21():
