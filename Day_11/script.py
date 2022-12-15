@@ -1,5 +1,5 @@
 from players import Player_BlackJack_21, Computer_BlackJack_21
-from card import Card
+from card import ChangeCardValue, GenerateCardsValuesFromList
 
 end_of_game = False
 
@@ -7,49 +7,63 @@ end_of_game = False
 player = Player_BlackJack_21()
 computer = Computer_BlackJack_21()
 
+player_stack = player.return_cards_in_hand()
+computer_stack = computer.return_cards_in_hand()
+
+player_card_values = GenerateCardsValuesFromList(
+    player_stack).generate_cards_objects()
+
+computer_stack_values = GenerateCardsValuesFromList(
+    computer_stack).generate_cards_objects()
+
 print("Welcome to BlackJack 21 Game ")
-print("")
+print()
 player.print_player_hand_cards()
-print("")
+print()
 computer.print_player_hand_cards()
 
 
-player_hand = player.player_hand
-computer_hand = computer.player_hand
-player_cards = []
-computer_cards = []
-
-
-def generate_participant_stack(participant_hand):
-    for i in range(len(participant_hand)):
-        card = Card(participant_hand[i])
-        player_cards.append(card)
-        
-def add_card_to_stack(participant_hand, stack_of_cards):
-    for i in range(len(participant_hand)):
-        card = Card(participant_hand[i])
-        if card.card != stack_of_cards[i].card:
-            player_cards.append(card)
-        else:
-            continue
-        
-    
-generate_participant_stack(player_hand)
-print(player_cards)
-player.add_random_card_to_stack()
-player_hand = player.player_hand
-add_card_to_stack(player_hand, player_cards)
-print(player_cards)
-
-
-
-def card_strenght(participant_cards: list):
+def participant_card_strength(participant_card_values: GenerateCardsValuesFromList):
     current_value = 0
-    for card in participant_cards:
+
+    for card in participant_card_values:
         card_value = card.card_value
         current_value += card_value
 
     return current_value
 
 
-player_strenght = card_strenght(player_cards)
+def check_is_ace_in_stack(participant_card_values: GenerateCardsValuesFromList):
+    for card in participant_card_values:
+        card_value = card.card_value
+        if card_value == 11 : 
+            new_ace_value = input("You have ace in your stack. What do you want to do ? Change value for '1' or '11'. What value do you choose? Type '1' for 1, or '11' for 11 \n").int
+            card.card_value = new_ace_value
+        else:
+            continue
+            
+
+
+player_strength = participant_card_strength(player_card_values)
+computer_strength = participant_card_strength(computer_stack_values)
+
+
+while player_strength < 17:
+    player.add_random_card_to_stack()
+    player_stack = player.return_cards_in_hand()
+    player_card_values = GenerateCardsValuesFromList(
+        player_stack).generate_cards_objects()
+    player_strength = participant_card_strength(player_card_values)
+
+while computer_strength < 17:
+    computer.add_random_card_to_stack()
+    computer_stack = computer.return_cards_in_hand()
+    computer_stack_values = GenerateCardsValuesFromList(
+        computer_stack).generate_cards_objects()
+    computer_strength = participant_card_strength(computer_stack_values)
+
+print(player_strength)
+print(computer_strength)
+
+
+#TODO : Potencial TODO : 1. End code the script file, with the all game scenarios. The rest functionality is done 
