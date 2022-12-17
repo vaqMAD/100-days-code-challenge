@@ -10,5 +10,5 @@ for question in question_data:
 
 quiz = QuizBrain(question_bank)
 
-while quiz.check_is_next_question()
+while quiz.check_is_next_question():
     quiz.next_question()
