@@ -16,7 +16,7 @@ class Snake():
 
     def __init__(self):
 
-        # Set up the esnake object
+        # Set up the snake object
         self.snake_segments = []
         self.create_snake()
         self.head = self.snake_segments[0]
