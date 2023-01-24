@@ -163,7 +163,7 @@ images/
 
 image.jpg
 .jpg
-.png
+*.png
 
 *.jpg
 *.png
