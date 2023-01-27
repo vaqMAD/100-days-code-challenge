@@ -167,3 +167,5 @@ image.jpg
 
 *.jpg
 *.png
+
+credentials.py
